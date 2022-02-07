@@ -72,7 +72,7 @@ function inputOperator(operator) {
         secondOperator = operator;
         secondOperand = displayValue;
         result = operate(Number(firstOperand), Number(secondOperand), firstOperator);
-        displayValue = roundAccurately(result, 15).toString();
+        displayValue = result.toString();
         firstOperand = displayValue;
         result = null;
     } else if(firstOperator != null && secondOperator != null) {
@@ -80,7 +80,7 @@ function inputOperator(operator) {
         secondOperand = displayValue;
         result = operate(Number(firstOperand), Number(secondOperand), secondOperator);
         secondOperator = operator;
-        displayValue = roundAccurately(result, 15).toString();
+        displayValue = result.toString();
         firstOperand = displayValue;
         result = null;
     } else { 
@@ -98,7 +98,7 @@ function inputEquals() {
         //handles final result
         secondOperand = displayValue;
         result = operate(Number(firstOperand), Number(secondOperand), secondOperator);
-        displayValue = roundAccurately(result, 15).toString();
+        displayValue = result.toString();
         firstOperand = displayValue;
         secondOperand = null;
         firstOperator = null;
@@ -108,7 +108,7 @@ function inputEquals() {
         //handles first operation
         secondOperand = displayValue;
         result = operate(Number(firstOperand), Number(secondOperand), firstOperator);
-        displayValue = roundAccurately(result, 15).toString();
+        displayValue = result.toString();
         firstOperand = displayValue;
         secondOperand = null;
         firstOperator = null;
@@ -154,8 +154,4 @@ function operate(x, y, op) {
     } else if(op === '/') {    
         return x / y;
     }
-}
-
-function roundAccurately(num, places) {
-    return parseFloat(Math.round(num + 'e' + places) + 'e-' + places);
 }
